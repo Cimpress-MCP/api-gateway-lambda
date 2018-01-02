@@ -7,14 +7,13 @@ It takes the necessary parameters from a config.json file and swagger.json(For A
 ## Getting Started.
 
 ### Prerequisites.
-- This is a javascript library so you will require node.js installed to use this library. 
-- This library uses the aws-sdk so your aws credentials are to be there is the environment variables.
+- Node.js (> v6.9.2)
+- AWS credentials should be stored in the environment variables.
 
 ### Installation.
-It is published as an npm module.
 
 ```bash
-npm install lambda-gateway
+npm install lambda-gateway --save
 ```
 ### Using it in your code.
 
@@ -130,6 +129,7 @@ The library takes the configuration for deployment from the config.json file.
   }
 }
 ```
+- For Deployment of API Gateway a swagger documentation is required.
 
 #### swagger.json - x-amazon-apigateway-integration
 

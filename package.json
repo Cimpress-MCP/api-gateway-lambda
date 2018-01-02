@@ -1,7 +1,7 @@
 {
   "name": "api-gateway-lambda",
   "version": "1.0.0",
-  "description": "This is a library that eases the process of deployment of AWS Lambda and API Gateway.",
+  "description": "This is a javascript library that eases the process of deployment of AWS Lambda and API Gateway.",
   "main": "awsDeployLibrary.js",
   "directories": {
     "test": "test"
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Cimpress-MCP/api-gateway-lambda"
   },
   "keywords": [
     "aws",
