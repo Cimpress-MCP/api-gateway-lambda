@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <AssemblyName>test-dotnetcore</AssemblyName>
+    <OutputType>Library</OutputType>
+    <PackageId>test-dotnetcore</PackageId>
+    <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Amazon.Lambda.Core" Version="1.0.0" />
+    <PackageReference Include="Amazon.Lambda.APIGatewayEvents" Version="1.0.2" />
+    <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.0.1" />
+    <PackageReference Include="Amazon.Lambda.Tools" Version="1.3.0-preview1">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Amazon.Lambda.Tools" Version="1.3.0-preview1" />
+  </ItemGroup>
+
+</Project>

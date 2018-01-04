@@ -1,0 +1,91 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Mailer service",
+    "description": "A simple API"
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "",
+  "basePath": "/",
+  "paths": {
+    "/mail": {
+      "get": {
+        "summary": "To send mails",
+        "description": "Sends mails",
+        "parameters": [
+          {
+            "name": "end",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sending mail is successful"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401":{
+            "description":"Unauthorized"
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "credentials": "arn:aws:iam::836567955187:role/Intaglio_lambda_ApiGateWay_Role",
+          "httpMethod": "post",
+          "type": "aws",
+          "uri": "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:836567955187:function:test_dotnet:PROD/invocations",
+          "responses": {
+            "default": {
+              "statusCode": 200
+            },
+            ".*BadRequest.*": {
+              "statusCode": 400
+            },
+            ".*InternalServerError.*": {
+              "statusCode": 500
+            },
+            ".*statuscode":{
+              "statusCode": 400
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "postBody": {
+      "type": "object",
+      "properties": {
+        "to": {
+          "type": "string",
+          "description": "Email Ids semicolon separated, to whom the mail has to be sent"
+        },
+        "from": {
+          "type": "string",
+          "description": "The Email address from which the mail has to be sent"
+        },
+        "body": {
+          "type": "string",
+          "description": "Body of the mail"
+        },
+        "subject": {
+          "type": "string",
+          "description": "Subject of the mail."
+        },
+        "isHTML": {
+          "type": "boolean",
+          "description": "The value whether the email body is HTML or not."
+        },
+        "cc": {
+          "type": "string",
+          "description": "The Email address in cc"
+        }
+      }
+    }
+  }
+}

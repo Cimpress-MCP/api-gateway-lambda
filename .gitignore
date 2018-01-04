@@ -1,0 +1,6 @@
+node_modules
+.npmignore
+examples/dotnetcoreSampleApp/src/src/test-dotnetcore/obj
+examples/dotnetcoreSampleApp/src/test/test-dotnetcore.Tests/obj
+examples/dotnetcoreSampleApp/src/src/test-dotnetcore/bin
+examples/dotnetcoreSampleApp/src/test/test-dotnetcore.Tests/bin

@@ -1,0 +1,37 @@
+{
+  "LambdaName": "test-node",
+  "APIGatewayName": "test-node",
+  "s3BucketName": "test-node.15-6-17",
+  "Role": "arn:aws:iam::836567955187:role/Intaglio_lambda_ApiGateWay_Role",
+  "MemorySize": 128,
+  "Runtime": "nodejs6.10",
+  "Timeout": 10,
+  "Handler": "index.handler",
+  "SubnetIds": [
+    "subnet-d998fdaf"
+  ],
+  "SecurityGroupIds": [
+    "sg-7bf5351d"
+  ],
+  "filePath": "src/ModuleName",
+  "env": {
+    "PROD": {
+      "envName": "PROD",
+      "s3Path": "lambdaDeploymentPackage/PROD/test-node.zip",
+      "stageName": "PROD",
+      "aliasName": "PROD",
+      "stageVariables": {
+        "envName": "PROD"
+      }
+    },
+    "TEST": {
+      "envName": "TEST",
+      "s3Path": "lambdaDeploymentPackage/TEST/test-node.zip",
+      "stageName": "TEST",
+      "aliasName": "TEST",
+      "stageVariables": {
+        "envName": "TEST"
+      }
+    }
+  }
+}

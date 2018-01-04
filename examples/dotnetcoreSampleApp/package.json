@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "api-gateway-lambda": "^1.0.0",
+    "aws-sdk": "^2.56.0",
+    "promise": "^7.1.1"
+  }
+}
