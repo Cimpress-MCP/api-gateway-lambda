@@ -1,6 +1,6 @@
 {
   "name": "api-gateway-lambda",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a javascript library that eases the process of deployment of AWS Lambda and API Gateway.",
   "main": "awsDeployLibrary.js",
   "directories": {
