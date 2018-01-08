@@ -13,7 +13,7 @@ It takes the necessary parameters from a config.json file and swagger.json(For A
 ### Installation.
 
 ```bash
-npm install lambda-gateway --save
+npm install api-gateway-lambda --save
 ```
 ### Using it in your code.
 
