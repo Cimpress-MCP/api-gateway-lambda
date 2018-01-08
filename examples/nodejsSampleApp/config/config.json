@@ -2,16 +2,16 @@
   "LambdaName": "test-node",
   "APIGatewayName": "test-node",
   "s3BucketName": "test-node.15-6-17",
-  "Role": "arn:aws:iam::836567955187:role/Intaglio_lambda_ApiGateWay_Role",
+  "Role": "<IAM Role of ApiGateway Allowing access to Lambda>",
   "MemorySize": 128,
   "Runtime": "nodejs6.10",
   "Timeout": 10,
   "Handler": "index.handler",
   "SubnetIds": [
-    "subnet-d998fdaf"
+    "subnet-********"
   ],
   "SecurityGroupIds": [
-    "sg-7bf5351d"
+    "sg-********"
   ],
   "filePath": "src/ModuleName",
   "env": {

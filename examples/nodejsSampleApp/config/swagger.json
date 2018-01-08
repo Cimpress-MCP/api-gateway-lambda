@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "Mailer service",
+    "title": "Simple service",
     "description": "A simple API to get fibonacci series"
   },
   "schemes": [
@@ -13,20 +13,18 @@
   "paths": {
     "/mail/{end}": {
       "get": {
-        "summary": "To send mails",
-        "description": "Sends mails",
-        "parameters": [
-          {
+        "summary": "To get fibonacci series",
+        "description": "Get fibonacci series",
+        "parameters": [{
           "name": "end",
           "in": "path",
           "description": "End of series",
           "required": true,
           "type": "integer"
-        }
-        ],
+        }],
         "responses": {
           "200": {
-            "description": "Sending mail is successful"
+            "description": "Successful"
           },
           "400": {
             "description": "Bad Request"
@@ -36,10 +34,10 @@
           }
         },
         "x-amazon-apigateway-integration": {
-          "credentials": "arn:aws:iam::836567955187:role/Intaglio_lambda_ApiGateWay_Role",
+          "credentials": "<IAM Role of ApiGateway Allowing access to Lambda>",
           "httpMethod": "post",
           "type": "aws",
-          "uri": "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:836567955187:function:test-node:PROD/invocations",
+          "uri": "arn:aws:apigateway:<aws-region>:lambda:path/2015-03-31/functions/arn:aws:lambda:<aws-region>:<aws-account-number>:function:<function-name>:<alias-name>/invocations",
           "requestTemplates": {
             "application/json": "{\n \"end\": \"$input.params('end')\"\n}"
           },

@@ -2,7 +2,7 @@
   "LambdaName": "test_dotnetcore",
   "APIGatewayName": "test_dotnetcore",
   "s3BucketName": "test-dotnetcore.14-6-17",
-  "Role": "arn:aws:iam::836567955187:role/Intaglio_lambda_ApiGateWay_Role",
+  "Role": "<IAM Role of ApiGateway Allowing access to Lambda>",
   "MemorySize": 128,
   "Runtime": "dotnetcore1.0",
   "Timeout": 10,

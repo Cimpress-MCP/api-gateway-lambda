@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "Mailer service",
-    "description": "A simple API"
+    "title": "Simple service",
+    "description": "A simple API to get fibonacci series"
   },
   "schemes": [
     "https"
@@ -11,34 +11,36 @@
   "host": "",
   "basePath": "/",
   "paths": {
-    "/mail": {
+    "/mail/{end}": {
       "get": {
-        "summary": "To send mails",
-        "description": "Sends mails",
-        "parameters": [
-          {
-            "name": "end",
-            "in": "path",
-            "required": true,
-            "type": "integer"
-          }
-        ],
+        "summary": "To get fibonacci series",
+        "description": "Get fibonacci series",
+        "parameters": [{
+          "name": "end",
+          "in": "path",
+          "description": "End of series",
+          "required": true,
+          "type": "integer"
+        }],
         "responses": {
           "200": {
-            "description": "Sending mail is successful"
+            "description": "Successful"
           },
           "400": {
             "description": "Bad Request"
           },
-          "401":{
-            "description":"Unauthorized"
+          "500": {
+            "description": "Internal server error"
           }
         },
         "x-amazon-apigateway-integration": {
-          "credentials": "arn:aws:iam::836567955187:role/Intaglio_lambda_ApiGateWay_Role",
+          "credentials": "<IAM Role of ApiGateway Allowing access to Lambda>",
           "httpMethod": "post",
           "type": "aws",
-          "uri": "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:836567955187:function:test_dotnet:PROD/invocations",
+          "uri": "arn:aws:apigateway:<aws-region>:lambda:path/2015-03-31/functions/arn:aws:lambda:<aws-region>:<aws-account-number>:function:<function-name>:<alias-name>/invocations",
+          "requestTemplates": {
+            "application/json": "{\n \"end\": \"$input.params('end')\"\n}"
+          },
           "responses": {
             "default": {
               "statusCode": 200
@@ -48,9 +50,6 @@
             },
             ".*InternalServerError.*": {
               "statusCode": 500
-            },
-            ".*statuscode":{
-              "statusCode": 400
             }
           }
         }
@@ -59,33 +58,8 @@
   },
   "definitions": {
     "postBody": {
-      "type": "object",
-      "properties": {
-        "to": {
-          "type": "string",
-          "description": "Email Ids semicolon separated, to whom the mail has to be sent"
-        },
-        "from": {
-          "type": "string",
-          "description": "The Email address from which the mail has to be sent"
-        },
-        "body": {
-          "type": "string",
-          "description": "Body of the mail"
-        },
-        "subject": {
-          "type": "string",
-          "description": "Subject of the mail."
-        },
-        "isHTML": {
-          "type": "boolean",
-          "description": "The value whether the email body is HTML or not."
-        },
-        "cc": {
-          "type": "string",
-          "description": "The Email address in cc"
-        }
-      }
+      "type": "string",
+      "description": "end of the series"
     }
   }
 }
