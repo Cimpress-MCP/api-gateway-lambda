@@ -20,19 +20,19 @@ npm install api-gateway-lambda --save
 - If you have your config.json and swagger.json in a config folder at the root of your project:
 
 ```typescript
-const deploymentLibrary = require('lambda-gateway')();
+const deploymentLibrary = require('api-gateway-lambda')();
 
 deploymentLibrary.deployLambda();
-deploymentLibrary.deployAPIGateway();
+deploymentLibrary.deployAPIGateWay();
 ```
 - You can specify the relative path of the config folder:
 
 ```typescript
-const deploymentLibrary = require('lambda-gateway')('/dist/config'); 
+const deploymentLibrary = require('api-gateway-lambda')('/dist/config'); 
 //if config folder is in a folder dist sitting at the root of your project.
 
 deploymentLibrary.deployLambda();
-deploymentLibrary.deployAPIGateway();
+deploymentLibrary.deployAPIGateWay();
 ```
 
 - These functions return promises in case you want to synchronize their execution.
@@ -58,7 +58,6 @@ The library takes the configuration for deployment from the config.json file.
   "LambdaName": "test-node",
   "APIGatewayName": "test-node",
   "s3BucketName": "test-node.15-6-17",
-  "region": "eu-west-1",
   "Role": "<IAM Role of ApiGateway Allowing access to Lambda>",
   "MemorySize": 128,
   "Runtime": "nodejs6.10",
@@ -90,7 +89,6 @@ The library takes the configuration for deployment from the config.json file.
 {
   "LambdaName": "test-node",
   "s3BucketName": "test-node.15-6-17",
-  "region": "eu-west-1",
   "Role": "<IAM Role of ApiGateway Allowing access to Lambda>",
   "MemorySize": 128,
   "Runtime": "nodejs6.10",
